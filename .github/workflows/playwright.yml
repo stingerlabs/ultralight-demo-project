@@ -1,7 +1,7 @@
 name: Playwright Tests
 on:
   release:
-    types: [released]
+    types: [prereleased]
   workflow_dispatch:
 jobs:
   test:
