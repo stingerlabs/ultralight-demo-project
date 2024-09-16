@@ -4,9 +4,9 @@ description: Verify that the AI-guided ultrasound software produces high-quality
 steps:
   - step: Activate the ultrasound system and select the AI-guided imaging mode
     acceptance_criteria: AI-guided imaging mode is selected successfully without any errors
-  - step: Prepare the test subject or phantom according to the system's instructions
-    acceptance_criteria: Test subject or phantom is correctly prepared and ready for scanning
-  - step: Perform a scan of the subject/phantom with AI-guided assistance enabled
+  - step: Prepare the test subject according to the system's instructions
+    acceptance_criteria: Test subject is correctly prepared and ready for scanning
+  - step: Perform a scan of the subject with AI-guided assistance enabled
     acceptance_criteria: Scan is completed successfully with AI assistance active throughout
   - step: Observe and record the clarity and resolution of the captured image
     acceptance_criteria: Captured image is clear, high-resolution, and accurately represents the anatomy without significant artifacts or distortions
