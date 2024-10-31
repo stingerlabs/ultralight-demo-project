@@ -13,4 +13,4 @@ steps:
   - step: Display the captured image on the system screen or external display
     acceptance_criteria: Image is displayed accurately without distortion, maintaining correct scaling and aspect ratio
   - step: Utilize the image manipulation tools (e.g., zoom, pan, rotate) on the captured image
-    acceptance_criteria: Image manipulation tools function correctly; image quality is maintained during manipulation without introducing artifacts or distortions
+    acceptance_criteria: Image manipulation tools function correctly; image quality is maintained during manipulation without any artifacts or distortions
