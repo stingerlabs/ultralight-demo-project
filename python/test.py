@@ -16,7 +16,7 @@ def test_insert_multiple(record_xml_attribute):
     assert result == 'world'
 
 def test_insert_multiple_keys(record_xml_attribute):
-    record_xml_attribute("name", "VER-1 test insert multiple keys")
+    record_xml_attribute("name", "VER-2 test insert multiple keys")
     hash_table = BadHashTable()
     hash_table.insert('hello', 'world')
     hash_table.insert('foo', 'bar')
