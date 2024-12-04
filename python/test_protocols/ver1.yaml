@@ -1,5 +1,5 @@
 ultralight-test-id: VER-1
-title: Image Quality Test
+title: Image Quality Analysis Test
 description: Verify that the AI-guided ultrasound software produces high-quality images and that the images are accurately displayed.
 steps:
   - step: Activate the ultrasound system and select the AI-guided imaging mode
