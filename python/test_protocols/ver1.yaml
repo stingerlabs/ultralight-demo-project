@@ -14,3 +14,5 @@ steps:
     acceptance_criteria: Image is displayed accurately without distortion, maintaining correct scaling and aspect ratio
   - step: Utilize the image manipulation tools (e.g., zoom, pan, rotate, crop) on the captured image
     acceptance_criteria: Image manipulation tools function correctly; image quality is maintained during manipulation without introducing artifacts or distortions
+  - step: Export the captured image to DICOM format
+    acceptance_criteria: Images are successfully exported in the correct format while preserving all image quality and metadata
