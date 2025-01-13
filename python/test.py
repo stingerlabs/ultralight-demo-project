@@ -1,15 +1,15 @@
-from bad_hash_table import BadHashTable
+from image_test import ImageTest
 
 def test_insert(record_xml_attribute):
     record_xml_attribute("name", "VER-1 test insert success")
-    hash_table = BadHashTable()
+    hash_table = ImageTest()
     hash_table.insert('hello', 'world')
     result = hash_table.get('hello')
     assert result == 'world'
 
 def test_insert_multiple(record_xml_attribute):
     record_xml_attribute("name", "VER-1 test insert multiple")
-    hash_table = BadHashTable()
+    hash_table = ImageTest()
     hash_table.insert('hello', 'world')
     hash_table.insert('hello', 'world')
     result = hash_table.get('hello')
@@ -17,7 +17,7 @@ def test_insert_multiple(record_xml_attribute):
 
 def test_insert_multiple_keys(record_xml_attribute):
     record_xml_attribute("name", "VER-2 test insert multiple keys")
-    hash_table = BadHashTable()
+    hash_table = ImageTest()
     hash_table.insert('hello', 'world')
     hash_table.insert('foo', 'bar')
     result = hash_table.get('hello')

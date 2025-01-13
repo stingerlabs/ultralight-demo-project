@@ -1,4 +1,4 @@
-class BadHashTable():
+class ImageTest():
     def __init__(self):
         self.dict = dict()
 
@@ -11,6 +11,6 @@ class BadHashTable():
         raise KeyError("Couldn't find the key")
 
 if __name__ == "__main__":
-    hash_table = BadHashTable()
-    hash_table.insert('hi', 'hello')
-    hash_table.get('hi')
+    image_test = ImageTest()
+    image_test.insert('hi', 'hello')
+    image_test.get('hi')
