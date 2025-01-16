@@ -1,7 +1,5 @@
 name: Pytest
-on:
-  push:
-    branches: [ main, master ]
+on: push
 jobs:
   test:
     timeout-minutes: 60
