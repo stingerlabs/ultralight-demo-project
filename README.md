@@ -9,6 +9,8 @@ We support the JUnit XML format for test execution reports. Most testing framewo
 
 The [next](/next) and [python](/python) apps in this sample project have been configured to output in JUnit, and have example test cases showing where the Ultralight Design Controls ID can be specified
 
+test
+
 ## Test Protocol Definitions
 Each test case must be written in the following format:
 ```yaml
