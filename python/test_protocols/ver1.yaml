@@ -16,3 +16,5 @@ steps:
     acceptance_criteria: Image manipulation tools function correctly; image quality is maintained during manipulation without introducing artifacts or distortions
   - step: Export the captured image to DICOM format
     acceptance_criteria: Images are successfully exported in the correct format while preserving all image quality and metadata
+  - step: Compare the exported DICOM image with the original displayed image
+    acceptance_criteria: Exported DICOM image maintains the same quality, resolution, and diagnostic value as the original displayed image
