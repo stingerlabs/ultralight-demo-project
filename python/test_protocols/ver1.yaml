@@ -20,3 +20,5 @@ steps:
     acceptance_criteria: Exported DICOM image maintains the same quality, resolution, and diagnostic value as the original displayed image
   - step: Verify the DICOM metadata accuracy and completeness
     acceptance_criteria: All required DICOM metadata fields are present and accurately populated with the correct study information
+  - step: Verify the DICOM image compatibility with standard DICOM viewers
+    acceptance_criteria: The exported DICOM image can be successfully opened and viewed in standard DICOM viewing software
