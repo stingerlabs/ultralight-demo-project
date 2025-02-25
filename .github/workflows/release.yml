@@ -35,6 +35,7 @@ jobs:
         uses: ultralightlabs/ultralight-github-action@v1.3.0-canary.0
         with:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
+          ultralight-url: https://staging.ultralightlabs.com
           command: REPORT_COMMIT
           commit-hash: $SHA
           pr-url: $PR_URL
