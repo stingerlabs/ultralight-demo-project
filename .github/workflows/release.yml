@@ -32,7 +32,7 @@ jobs:
           echo '${{ github.event.pull_request.body }}' > pr-body.md
 
       - name: Report commit to Ultralight
-        uses: ultralightlabs/ultralight-github-action@v1.3.0-canary.1
+        uses: ultralightlabs/ultralight-github-action@v1.3.0-canary.2
         with:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
           ultralight-url: https://staging.ultralightlabs.com
