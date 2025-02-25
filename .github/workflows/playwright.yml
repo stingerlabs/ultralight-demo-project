@@ -21,7 +21,7 @@ jobs:
     
     - name: Report to Ultralight
       if: github.ref == 'refs/heads/main'
-      uses: ultralightlabs/ultralight-github-action@v1
+      uses: ultralightlabs/ultralight-github-action@v1.3.0-canary.3
       with:
         ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
         ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID}}
