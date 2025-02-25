@@ -37,6 +37,6 @@ jobs:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
           ultralight-url: https://staging.ultralightlabs.com
           command: REPORT_COMMIT
-          commit-hash: $SHA
-          pr-url: $PR_URL
+          commit-hash: ${{ env.SHA }}
+          pr-url: ${{ env.PR_URL }}
           pr-description-file-path: pr-body.md
