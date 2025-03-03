@@ -13,7 +13,7 @@ jobs:
           node-version: '20'
 
       - name: Report commit to Ultralight
-        id: ul-report-commit
+        id: report-commit
         uses: ultralightlabs/ultralight-github-action@v1.3.2-canary.0
         with:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
@@ -22,5 +22,5 @@ jobs:
 
       - name: test next step
         run: |
-          echo '${{ steps.ul-report-commit.outputs.merge-block }}'
-          echo '${{ steps.ul-report-commit.outputs.report-commit-data }}' | jq '.updatedSoftwarePartVersions'
+          echo '${{ steps.report-commit.outputs.merge-block }}'
+          echo '${{ steps.report-commit.outputs.report-commit-data }}' | jq '.updatedSoftwarePartVersions'
