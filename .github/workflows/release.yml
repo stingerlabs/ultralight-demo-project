@@ -24,4 +24,4 @@ jobs:
         run: echo "${{ steps.ul-report-commit.outputs.merge-block }}"
 
       - name: test next step 2
-        run: echo '${{ steps.ul-report-commit.outputs.report-commit-data }}' | jq '.updatedSoftwarePartVersions'
+        run: echo '${{ steps.ul-report-commit.outputs.report-commit-data }}' | jq '.mergeBlock'
