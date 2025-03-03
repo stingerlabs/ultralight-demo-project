@@ -21,6 +21,7 @@ jobs:
           command: REPORT_COMMIT
 
       - name: test next step
-        run: |
-          echo "${{ steps.ul-report-commit.outputs.merge-block }}"
-          echo "${{ steps.ul-report-commit.outputs.report-commit-data }}"
+        run: echo "${{ steps.ul-report-commit.outputs.merge-block }}"
+
+      - name: test next step 2
+        run: echo "${{ steps.ul-report-commit.outputs.report-commit-data }}" | jq '.updatedSoftwarePartVersions'
