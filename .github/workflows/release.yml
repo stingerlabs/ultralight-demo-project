@@ -10,18 +10,24 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Report commit to Ultralight
         id: report-commit
-        uses: ultralightlabs/ultralight-github-action@v1.3.2-canary.0
+        uses: ultralightlabs/ultralight-github-action@v1
         with:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
-          ultralight-url: https://staging.ultralightlabs.com
           command: REPORT_COMMIT
-
-      - name: test next step
+      - if: ${{ steps.report-commit.outputs.merge-allowed == 'true' }}
+        name: Set status to success
         run: |
-          echo '${{ steps.report-commit.outputs.merge-allowed }}'
-          echo '${{ steps.report-commit.outputs.report-commit-data }}' | jq '.mergeAllowed'
+          echo "::success::This pull request can be merged."
           echo '${{ steps.report-commit.outputs.report-commit-data }}' | jq '.updatedSoftwarePartVersions'
+          echo '${{ steps.report-commit.outputs.report-commit-data }}' | jq '.mergeAllowed.details'
+      - if: ${{ steps.report-commit.outputs.merge-allowed != 'true' }}
+        name: Set status to waiting and add annotation with full details
+        run: |
+          echo "::error::This pull request cannot be merged yet."
+          echo '${{ steps.report-commit.outputs.report-commit-data }}' | jq '.updatedSoftwarePartVersions'
+          echo '${{ steps.report-commit.outputs.report-commit-data }}' | jq '.mergeAllowed.details.releases.releasesWithErrors[].errors[]'
+          exit 1
