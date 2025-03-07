@@ -1,26 +1,29 @@
 name: Pytest
-on: push
+on:
+  push:
+    branches:
+      - main
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     defaults:
-        run:
-          working-directory: ./python
+      run:
+        working-directory: ./python
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-    - name: Run tests
-      run: pytest --junit-xml=junit.xml test.py
-    - name: Report to Ultralight
-      uses: ultralightlabs/ultralight-github-action@v1
-      with:
-        ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
-        command: REPORT_TEST
-        ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID}}
-        test-execution-report-path: python/junit.xml
-        test-protocol-definitions-directory-path: python/test_protocols
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: pytest --junit-xml=junit.xml test.py
+      - name: Report to Ultralight
+        uses: ultralightlabs/ultralight-github-action@v1
+        with:
+          ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
+          command: REPORT_TEST
+          ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID}}
+          test-execution-report-path: python/junit.xml
+          test-protocol-definitions-directory-path: python/test_protocols
