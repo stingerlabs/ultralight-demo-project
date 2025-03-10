@@ -8,7 +8,7 @@ steps:
     acceptance_criteria: Test subject is correctly prepared and ready for scanning
   - step: Perform a scan of the subject with AI-guided assistance enabled
     acceptance_criteria: Scan is completed successfully with AI assistance active throughout
-  - step: Observe and record the clarity and resolution of the captured image
+  - step: Observe and record the image quality metrics including clarity, resolution, contrast ratio, and signal-to-noise ratio of the captured image
     acceptance_criteria: Captured image is clear, high-resolution, and accurately represents the anatomy without significant artifacts or distortions
   - step: Display the captured image on the system screen or external display
     acceptance_criteria: Image is displayed accurately without distortion, maintaining correct scaling and aspect ratios
