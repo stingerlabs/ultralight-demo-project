@@ -12,16 +12,6 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Get PR details on push
-        if: ${{ github.event_name == 'push' }}
-        run: >-
-          echo "SHA=${{ github.sha }}" >> $GITHUB_ENV;
-          echo "PR_URL=$(gh pr view --json url --jq '.url')" >> $GITHUB_ENV;
-          echo "$(gh pr view --json body --jq '.body')" > pr-body.md
-        env:
-          # token used to fetch PR details with the github CLI `gh pr view`
-          GITHUB_TOKEN: ${{ github.token }}
-
       - name: Report commit to Ultralight
         id: report-commit
         uses: ultralightlabs/ultralight-github-action@v1.3.8-canary.0
