@@ -40,6 +40,7 @@ jobs:
         uses: ultralightlabs/ultralight-github-action@v1.3.8-canary.2
         with:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
+          pr-description-file-path: pr-body.md
           command: REPORT_COMMIT
       - if: ${{ steps.report-commit.outputs.merge-allowed == 'true' }}
         name: Set status to success
