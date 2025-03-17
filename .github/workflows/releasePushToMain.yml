@@ -27,7 +27,7 @@ jobs:
             echo "COMMIT_HASH=${{ github.sha }}" >> $GITHUB_ENV;
             echo "PR_URL=$(gh pr view $PR_NUMBER --json url --jq '.url')" >> $GITHUB_ENV;
             echo "$(gh pr view $PR_NUMBER --json body --jq '.body')" > pr-body.md;
-            echo "PR_DESCRIPTION=$(cat pr-body.md)" >> $GITHUB_ENV;
+            echo "$(cat pr-body.md)";
             echo "PR_DESCRIPTION_FILE_PATH=pr-body.md" >> $GITHUB_ENV;
           else
             echo "IS_MERGE_COMMIT=false" >> $GITHUB_ENV;
