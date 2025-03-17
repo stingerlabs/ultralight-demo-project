@@ -27,6 +27,7 @@ jobs:
             echo "COMMIT_HASH=${{ github.sha }}" >> $GITHUB_ENV;
             echo "PR_URL=$(gh pr view $PR_NUMBER --json url --jq '.url')" >> $GITHUB_ENV;
             echo "$(gh pr view $PR_NUMBER --json body --jq '.body')" > pr-body.md;
+            echo "PR_DESCRIPTION_FILE_PATH=pr-body.md" >> $GITHUB_ENV;
           else
             echo "IS_MERGE_COMMIT=false" >> $GITHUB_ENV;
             exit 1;
@@ -40,7 +41,6 @@ jobs:
         uses: ultralightlabs/ultralight-github-action@v1.3.8-canary.2
         with:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
-          pr-description-file-path: pr-body.md
           command: REPORT_COMMIT
       - if: ${{ steps.report-commit.outputs.merge-allowed == 'true' }}
         name: Set status to success
