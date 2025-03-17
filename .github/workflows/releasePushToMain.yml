@@ -24,6 +24,7 @@ jobs:
             echo "IS_MERGE_COMMIT=true" >> $GITHUB_ENV;
             echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV;
             echo "Extracted PR number: $PR_NUMBER";
+            echo "SHA=${{ github.sha }}" >> $GITHUB_ENV;
             echo "PR_URL=$(gh pr view $PR_NUMBER --json url --jq '.url')" >> $GITHUB_ENV;
             echo "$(gh pr view $PR_NUMBER --json body --jq '.body')" > pr-body.md;
           else
