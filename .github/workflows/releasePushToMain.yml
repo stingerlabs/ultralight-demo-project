@@ -1,7 +1,8 @@
-name: Release
+name: Release Push to Main
 on:
-  pull_request:
-    types: [opened, edited, reopened, synchronize]
+  push:
+    branches:
+      - main
 jobs:
   report-commit:
     runs-on: ubuntu-latest
@@ -12,9 +13,30 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Get PR details on push
+        if: ${{ github.event_name == 'push' }}
+        run: >-
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B);
+          echo "Commit message: $COMMIT_MESSAGE";
+          PR_NUMBER=$(echo "$COMMIT_MESSAGE" | sed -n 's/^Merge pull request #\([0-9]\+\).*/\1/p')
+          echo "PR Number: $PR_NUMBER";
+          if [[ -n "$PR_NUMBER" ]]; then
+            echo "IS_MERGE_COMMIT=true" >> $GITHUB_ENV
+            echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
+            echo "Extracted PR number: $PR_NUMBER"
+            echo "PR_URL=$(gh pr view $PR_NUMBER --json url --jq '.url')" >> $GITHUB_ENV
+            echo "$(gh pr view $PR_NUMBER --json body --jq '.body')" > pr-body.md
+          else
+            echo "IS_MERGE_COMMIT=false" >> $GITHUB_ENV
+            exit 1
+          fi
+        env:
+          # token used to fetch PR details with the github CLI `gh pr view`
+          GITHUB_TOKEN: ${{ github.token }}
+
       - name: Report commit to Ultralight
         id: report-commit
-        uses: ultralightlabs/ultralight-github-action@v1
+        uses: ultralightlabs/ultralight-github-action@v1.3.8-canary.0
         with:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
           command: REPORT_COMMIT
