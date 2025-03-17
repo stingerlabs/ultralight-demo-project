@@ -36,7 +36,7 @@ jobs:
         with:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
           pr-url: ${{ env.PR_URL }}
-          commit-hash: ${{ env.sha }}
+          commit-hash: ${{ github.sha }}
           is-merge-commit: true
           pr-description-file-path: pr-body.md
           command: REPORT_COMMIT
