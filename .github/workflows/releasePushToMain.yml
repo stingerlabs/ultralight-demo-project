@@ -18,7 +18,7 @@ jobs:
         run: >-
           COMMIT_MESSAGE=$(git log -1 --pretty=%B);
           echo "Commit message: $COMMIT_MESSAGE";
-          PR_NUMBER=$(echo "$COMMIT_MESSAGE" | sed -n 's/^Merge pull request #\([0-9]\+\).*/\1/p')
+          PR_NUMBER=$(echo "$COMMIT_MESSAGE" | grep -oE 'Merge pull request #[0-9]+' | grep -oE '[0-9]+')
           echo "PR Number: $PR_NUMBER";
           if [[ -n "$PR_NUMBER" ]]; then
             echo "IS_MERGE_COMMIT=true" >> $GITHUB_ENV
