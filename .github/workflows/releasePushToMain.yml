@@ -24,12 +24,8 @@ jobs:
             echo "IS_MERGE_COMMIT=true" >> $GITHUB_ENV;
             echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV;
             echo "Extracted PR number: $PR_NUMBER";
-            echo "SHA=${{ github.sha }}" >> $GITHUB_ENV;
+            echo "COMMIT_HASH=${{ github.sha }}" >> $GITHUB_ENV;
             echo "PR_URL=$(gh pr view $PR_NUMBER --json url --jq '.url')" >> $GITHUB_ENV;
-
-            echo "Checking PR view for PR #$PR_NUMBER"
-            gh pr view $PR_NUMBER --json body
-            
             echo "$(gh pr view $PR_NUMBER --json body --jq '.body')" > pr-body.md;
           else
             echo "IS_MERGE_COMMIT=false" >> $GITHUB_ENV;
@@ -41,7 +37,7 @@ jobs:
 
       - name: Report commit to Ultralight
         id: report-commit
-        uses: ultralightlabs/ultralight-github-action@v1.3.8-canary.0
+        uses: ultralightlabs/ultralight-github-action@v1.3.8-canary.2
         with:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
           command: REPORT_COMMIT
