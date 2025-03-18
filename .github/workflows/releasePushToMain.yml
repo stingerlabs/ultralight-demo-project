@@ -14,7 +14,6 @@ jobs:
           node-version: "20"
 
       - name: Get PR details on push
-        if: ${{ github.event_name == 'push' }}
         run: >-
           COMMIT_MESSAGE=$(git log -1 --pretty=%B);
           echo "Commit message: $COMMIT_MESSAGE";
@@ -25,21 +24,21 @@ jobs:
             echo "$(gh pr view $PR_NUMBER --json body --jq '.body')" > pr-body.md;
           else
             exit 1;
-          fi
+          fi     
         env:
           # token used to fetch PR details with the github CLI `gh pr view`
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Report commit to Ultralight
         id: report-commit
-        uses: ultralightlabs/ultralight-github-action@v1.3.8-canary.3
+        uses: ultralightlabs/ultralight-github-action@v1.3.8-canary.4
         with:
+          command: REPORT_COMMIT
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
           pr-url: ${{ env.PR_URL }}
           commit-hash: ${{ github.sha }}
           is-merge-commit: true
           pr-description-file-path: pr-body.md
-          command: REPORT_COMMIT
       - if: ${{ steps.report-commit.outputs.merge-allowed == 'true' }}
         name: Set status to success
         run: |
