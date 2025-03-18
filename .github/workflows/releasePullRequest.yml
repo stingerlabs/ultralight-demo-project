@@ -14,10 +14,10 @@ jobs:
 
       - name: Report commit to Ultralight
         id: report-commit
-        uses: ultralightlabs/ultralight-github-action@v1
+        uses: ultralightlabs/ultralight-github-action@v1.3.8-canary.7
         with:
-          ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
           command: REPORT_COMMIT
+          ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
       - if: ${{ steps.report-commit.outputs.merge-allowed == 'true' }}
         name: Set status to success
         run: |
