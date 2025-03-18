@@ -2,6 +2,8 @@ name: Release Pull Request
 on:
   pull_request:
     types: [opened, edited, reopened, synchronize]
+  pull_request_review:
+    types: [submitted]
 jobs:
   report-commit:
     runs-on: ubuntu-latest
