@@ -37,7 +37,7 @@ jobs:
       - name: Run tests
         run: pytest --junit-xml=junit.xml test.py
       - name: Report to Ultralight
-        uses: ultralightlabs/ultralight-github-action@v1.3.9-canary.0
+        uses: ultralightlabs/ultralight-github-action@v1
         with:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
           command: REPORT_TEST
