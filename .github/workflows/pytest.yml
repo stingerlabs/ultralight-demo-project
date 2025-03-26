@@ -15,15 +15,34 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      
+      - name: Get PR details on push
+        run: >-
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B);
+          echo "Commit message: $COMMIT_MESSAGE";
+          PR_NUMBER=$(echo "$COMMIT_MESSAGE" | grep -oE 'Merge pull request #[0-9]+' | grep -oE '[0-9]+');
+          echo "PR Number: $PR_NUMBER";
+          if [[ -n "$PR_NUMBER" ]]; then
+            echo "PR_URL=$(gh pr view $PR_NUMBER --json url --jq '.url')" >> $GITHUB_ENV;
+            echo "$(gh pr view $PR_NUMBER --json body --jq '.body')" > pr-body.md;
+          else
+            exit 1;
+          fi     
+        env:
+          # token used to fetch PR details with the github CLI `gh pr view`
+          GITHUB_TOKEN: ${{ github.token }}
+
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run tests
         run: pytest --junit-xml=junit.xml test.py
       - name: Report to Ultralight
-        uses: ultralightlabs/ultralight-github-action@v1
+        uses: ultralightlabs/ultralight-github-action@v1.3.9-canary.0
         with:
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
           command: REPORT_TEST
           ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID}}
           test-execution-report-path: python/junit.xml
           test-protocol-definitions-directory-path: python/test_protocols
+          pr-url: ${{ env.PR_URL }}
+          commit-hash: ${{ github.sha }}
