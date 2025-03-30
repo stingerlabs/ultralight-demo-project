@@ -3,7 +3,7 @@ title: Image Quality Analysis Testing
 description: Verify that the AI-guided ultrasound software produces high-quality images and that the images are accurately displayed.
 steps:
   - step: Power on the ultrasound system and navigate to the AI-guided imaging mode in the system menu
-    acceptance_criteria: System powers on successfully and reaches the main menu
+    acceptance_criteria: System powers on successfully with all indicator lights functioning normally, boots to a responsive state within the expected timeframe of 60 seconds, displays the startup screen without errors or artifacts, and successfully navigates to the main menu showing all expected UI elements and imaging mode options clearly visible and selectable
   - step: Prepare the test subject according to the system's instructions
     acceptance_criteria: Test subject is correctly prepared and ready for scanning
   - step: Perform a scan of the subject with AI-guided assistance enabled
