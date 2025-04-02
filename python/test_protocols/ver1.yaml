@@ -18,3 +18,5 @@ steps:
     acceptance_criteria: Images are successfully exported in the correct format while preserving all image quality and metadata
   - step: Compare the exported DICOM image with the original displayed image
     acceptance_criteria: Exported DICOM image maintains the same quality, resolution, and diagnostic value as the original displayed image, and all image parameters (including pixel values, window/level settings, and spatial resolution) are preserved without any loss or degradation during the export process
+  - step: Document and archive test results including image quality metrics, system performance data, and any observations
+    acceptance_criteria: All test results, metrics, and observations are properly documented and archived according to established protocols, including quantitative measurements of image quality parameters, system response times, and any deviations or anomalies noted during testing
