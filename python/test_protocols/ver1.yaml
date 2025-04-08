@@ -1,6 +1,6 @@
 ultralight-test-id: VER-1
 title: Image Quality Analysis Testing
-description: Verify that the AI-guided ultrasound software produces high-quality images and that the images are accurately displayed.
+description: Verify that the AI-guided ultrasound software produces high-quality images with optimal clarity, contrast, and resolution, and that these images are accurately displayed on the system screen without distortion or artifacts. The test evaluates both real-time image acquisition and post-processing capabilities.
 steps:
   - step: Power on the ultrasound system and navigate to the AI-guided imaging mode in the system menu
     acceptance_criteria: System powers on successfully with all indicator lights functioning normally, boots to a responsive state within the expected timeframe of 60 seconds, displays the startup screen without errors or artifacts, and successfully navigates to the main menu showing all expected UI elements and imaging mode options clearly visible and selectable
