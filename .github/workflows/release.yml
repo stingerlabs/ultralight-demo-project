@@ -1,9 +1,5 @@
 name: Release
-on:
-  push:
-    branches: main
-  # pull_request:
-  #   types: [opened, edited, reopened, synchronize]
+on: push
 jobs:
   report-commit:
     runs-on: ubuntu-latest
