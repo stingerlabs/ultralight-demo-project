@@ -24,6 +24,7 @@ jobs:
       uses: ultralightlabs/ultralight-github-action@v1
       with:
         ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
+        ultralight-url: https://staging.ultralightlabs.com
         command: REPORT_TEST
         ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID}}
         test-execution-report-path: next/playwright-report/results.xml
