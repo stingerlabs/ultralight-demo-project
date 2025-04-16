@@ -1,7 +1,9 @@
 name: Release
 on:
-  pull_request:
-    types: [opened, edited, reopened, synchronize]
+  push:
+    branches: main
+  # pull_request:
+  #   types: [opened, edited, reopened, synchronize]
 jobs:
   report-commit:
     runs-on: ubuntu-latest
@@ -11,6 +13,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: parse PR number out of commit message
+
+      - name: use GH CLI to fetch PR description using PR number
 
       - name: Report commit to Ultralight
         id: report-commit
