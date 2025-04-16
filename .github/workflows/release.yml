@@ -10,10 +10,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: parse PR number out of commit message
-
-      - name: use GH CLI to fetch PR description using PR number
-
       - name: Report commit to Ultralight
         id: report-commit
         uses: ultralightlabs/ultralight-github-action@v1.3.2-canary.0
