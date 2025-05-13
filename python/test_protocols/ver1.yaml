@@ -1,5 +1,5 @@
 ultralight-test-id: VER-1
-title: Image Quality Analysis Testing
+title: Image Quality and Processing Verification
 description: Verify that the AI-guided ultrasound software produces high-quality images with optimal clarity, contrast, and resolution, and that these images are accurately displayed on the system screen without distortion or artifacts. The test evaluates both real-time image acquisition and post-processing capabilities.
 steps:
   - step: Initialize the test environment and create a new ImageTest instance
