@@ -21,7 +21,6 @@ jobs:
       run: PLAYWRIGHT_JUNIT_OUTPUT_NAME=playwright-report/results.xml npx playwright test
     
     - name: Report to Ultralight
-      if: github.ref == 'refs/heads/main'
       uses: ultralightlabs/ultralight-github-action@v1.4.0-canary.0
       with:
         ultralight-url: https://staging.ultralightlabs.com
