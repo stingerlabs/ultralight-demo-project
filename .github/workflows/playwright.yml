@@ -1,7 +1,6 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ main, master ]
 jobs:
   test:
     timeout-minutes: 60
@@ -22,9 +21,9 @@ jobs:
       run: PLAYWRIGHT_JUNIT_OUTPUT_NAME=playwright-report/results.xml npx playwright test
     
     - name: Report to Ultralight
-      if: github.ref == 'refs/heads/main'
       uses: ultralightlabs/ultralight-github-action@v1
       with:
+        ultralight-url: https://staging.ultralightlabs.com
         ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
         command: REPORT_TEST
         ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID}}
