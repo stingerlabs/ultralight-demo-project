@@ -19,6 +19,7 @@ jobs:
         uses: ultralightlabs/ultralight-github-action@v1
         with:
           command: REPORT_COMMIT
+          ultralight-url: https://staging.ultralightlabs.com
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
       - if: ${{ steps.report-commit.outputs.merge-allowed == 'true' }}
         name: Set status to success
