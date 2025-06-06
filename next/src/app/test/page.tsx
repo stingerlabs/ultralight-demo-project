@@ -3,6 +3,8 @@ export default function Home() {
     <main>
       <div>
         This is a test page!
+        
+        New Feature!
       </div>
     </main>
   );
