@@ -28,4 +28,5 @@ jobs:
         command: REPORT_TEST
         ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID}}
         test-execution-report-path: next/playwright-report/results.xml
+        test-execution-unit-under-test: 123.456.789
         test-protocol-definitions-directory-path: next/test_protocols
