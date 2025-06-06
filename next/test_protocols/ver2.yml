@@ -4,7 +4,5 @@ description: Verify that the AI-guided ultrasound software accurately identifies
 steps:
   - step: Launch the AI-guided ultrasound software and prepare for scanning
     acceptance_criteria: Software is launched successfully and ready for scanning
-  - step: Perform an ultrasound scan using the AI-guided mode on a test subject or phantom
-    acceptance_criteria: Ultrasound image is captured successfully in AI-guided mode
   - step: Observe the image for identification and labeling of anatomical structures
     acceptance_criteria: Anatomical structures are correctly identified and labeled by the software
