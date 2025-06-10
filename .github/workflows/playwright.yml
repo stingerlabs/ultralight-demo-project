@@ -19,14 +19,30 @@ jobs:
       run: npx playwright install --with-deps chromium
     - name: Run Playwright tests
       run: PLAYWRIGHT_JUNIT_OUTPUT_NAME=playwright-report/results.xml npx playwright test
+
+    - name: Get PR details on push
+      run: >-
+        COMMIT_MESSAGE=$(git log -1 --pretty=%B);
+        echo "Commit message: $COMMIT_MESSAGE";
+        PR_NUMBER=$(echo "$COMMIT_MESSAGE" | grep -oE 'Merge pull request #[0-9]+' | grep -oE '[0-9]+');
+        echo "PR Number: $PR_NUMBER";
+        if [[ -n "$PR_NUMBER" ]]; then
+          echo "PR_URL=$(gh pr view $PR_NUMBER --json url --jq '.url')" >> $GITHUB_ENV;
+          echo "$(gh pr view $PR_NUMBER --json body --jq '.body')" > pr-body.md;
+        else
+          exit 1;
+        fi     
+      env:
+        # token used to fetch PR details with the github CLI `gh pr view`
+        GITHUB_TOKEN: ${{ github.token }}
     
     - name: Report to Ultralight
       uses: stingerlabs/ultralight-github-action@v1
       with:
-        ultralight-url: https://staging.ultralightlabs.com
-        ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
+        ultralight-url: https://a973-2600-4041-5b27-e700-b5c0-861e-fe1d-1cbf.ngrok-free.app
+        ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY_WILL_LOCAL}}
         command: REPORT_TEST
-        ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID}}
+        ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID_WILL_LOCAL}}
         test-execution-report-path: next/playwright-report/results.xml
         test-protocol-definitions-directory-path: next/test_protocols
         commit-hash: ${{ github.sha }}
