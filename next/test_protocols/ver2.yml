@@ -2,8 +2,6 @@ ultralight-test-id: VER-2
 title: Accuracy Test
 description: Verify that the AI-guided ultrasound software accurately identifies and labels anatomical structures
 steps:
-  - step: Navigate to the homepage
-    acceptance_criteria: Home page shows feature
   - step: Launch the AI-guided ultrasound software and prepare for scanning
     acceptance_criteria: Software is launched successfully and ready for scanning
   - step: Perform an ultrasound scan using the AI-guided mode on a test subject or phantom
