@@ -21,7 +21,7 @@ jobs:
       run: PLAYWRIGHT_JUNIT_OUTPUT_NAME=playwright-report/results.xml npx playwright test
     
     - name: Report to Ultralight
-      uses: ultralightlabs/ultralight-github-action@v1
+      uses: stingerlabs/ultralight-github-action@v1
       with:
         ultralight-url: https://staging.ultralightlabs.com
         ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
