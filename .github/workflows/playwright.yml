@@ -29,3 +29,6 @@ jobs:
         ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID}}
         test-execution-report-path: next/playwright-report/results.xml
         test-protocol-definitions-directory-path: next/test_protocols
+        commit-hash: ${{ github.sha }}
+        pr-url: ${{ env.PR_URL }}
+        is-merge-commit: true
