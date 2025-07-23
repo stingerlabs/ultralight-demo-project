@@ -40,7 +40,7 @@ jobs:
       uses: stingerlabs/ultralight-github-action@v1
       with:
         ultralight-url: https://2457b1f74502.ngrok-free.app
-        ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY_WILL_LOCAL}}
+        ultralight-api-key: ul_7ffd53df0f84c822cfc6526e82ffbfd993d15186a00dd8cbc8c3176ebe997b5b
         command: REPORT_TEST
         ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID_WILL_LOCAL}}
         test-execution-report-path: next/playwright-report/results.xml
