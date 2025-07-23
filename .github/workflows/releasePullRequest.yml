@@ -20,7 +20,7 @@ jobs:
         with:
           command: REPORT_COMMIT
           ultralight-url: https://2457b1f74502.ngrok-free.app
-          ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY_WILL_LOCAL}}
+          ultralight-api-key: ul_7ffd53df0f84c822cfc6526e82ffbfd993d15186a00dd8cbc8c3176ebe997b5b
       - if: ${{ steps.report-commit.outputs.merge-allowed == 'true' }}
         name: Set status to success
         run: |
