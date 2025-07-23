@@ -47,3 +47,4 @@ jobs:
         test-protocol-definitions-directory-path: next/test_protocols
         commit-hash: ${{ github.sha }}
         pr-url: ${{ github.event.pull_request.html_url }}
+        is-merge-commit: true
