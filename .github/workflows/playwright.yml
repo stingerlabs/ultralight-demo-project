@@ -39,7 +39,7 @@ jobs:
     - name: Report to Ultralight
       uses: stingerlabs/ultralight-github-action@v1
       with:
-        ultralight-url: https://1a17-2600-4041-5b27-e700-491b-22bb-ada1-4b5a.ngrok-free.app
+        ultralight-url: https://2457b1f74502.ngrok-free.app
         ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY_WILL_LOCAL}}
         command: REPORT_TEST
         ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID_WILL_LOCAL}}
