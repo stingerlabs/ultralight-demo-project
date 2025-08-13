@@ -1,6 +1,7 @@
 name: Playwright Tests
 on:
-  push:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
 jobs:
   test:
     timeout-minutes: 60
@@ -23,12 +24,11 @@ jobs:
     - name: Report to Ultralight
       uses: stingerlabs/ultralight-github-action@v1
       with:
-        ultralight-url: https://staging.ultralightlabs.com
         ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
         command: REPORT_TEST
         ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID}}
         test-execution-report-path: next/playwright-report/results.xml
         test-protocol-definitions-directory-path: next/test_protocols
         commit-hash: ${{ github.sha }}
-        pr-url: ${{ env.PR_URL }}
+        pr-url: ${{ github.event.pull_request.html_url }}
         is-merge-commit: true

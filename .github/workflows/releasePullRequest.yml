@@ -19,8 +19,11 @@ jobs:
         uses: stingerlabs/ultralight-github-action@v1
         with:
           command: REPORT_COMMIT
-          ultralight-url: https://staging.ultralightlabs.com
           ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
+          commit-hash: ${{ github.sha }}
+          is-merge-commit: true
+          pr-url: ${{ github.event.pull_request.html_url }}
+
       - if: ${{ steps.report-commit.outputs.merge-allowed == 'true' }}
         name: Set status to success
         run: |
