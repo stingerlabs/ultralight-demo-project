@@ -19,7 +19,7 @@ jobs:
         uses: stingerlabs/ultralight-github-action@v1
         with:
           command: REPORT_COMMIT
-          ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
+          ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY_STAGING}}
           commit-hash: ${{ github.sha }}
           is-merge-commit: true
           pr-url: ${{ github.event.pull_request.html_url }}

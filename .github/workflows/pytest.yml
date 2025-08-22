@@ -39,9 +39,9 @@ jobs:
       - name: Report to Ultralight
         uses: stingerlabs/ultralight-github-action@v1
         with:
-          ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY}}
+          ultralight-api-key: ${{secrets.ULTRALIGHT_GH_ACTION_SECRET_KEY_STAGING}}
           command: REPORT_TEST
-          ultralight-product-id: ${{secrets.ULTRALIGHT_GH_ACTION_PRODUCT_ID}}
+          ultralight-product-id: 2509
           test-execution-report-path: python/junit.xml
           test-protocol-definitions-directory-path: python/test_protocols
           pr-url: ${{ env.PR_URL }}
