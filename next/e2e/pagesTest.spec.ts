@@ -1,9 +1,22 @@
 import { test, expect } from '@playwright/test';
 
+test('VER-1 has "Hello World!" on homepage', async ({ page }) => {
+  await page.goto('http://localhost:3000/');
+
+  await expect(page.getByText('Hello world!')).toBeVisible()
+  await expect(page.getByText('Feature!')).toBeVisible()
+});
 test('VER-2 has "Hello World!" on homepage', async ({ page }) => {
   await page.goto('http://localhost:3000/');
 
   await expect(page.getByText('Hello world!')).toBeVisible()
+  await expect(page.getByText('Feature!')).toBeVisible()
+});
+test('VER-3 has "Hello World!" on homepage', async ({ page }) => {
+  await page.goto('http://localhost:3000/');
+
+  await expect(page.getByText('Hello world!')).toBeVisible()
+  await expect(page.getByText('Feature!')).toBeVisible()
 });
 
 test('clicking on Test! link opens test page', async ({ page }) => {
