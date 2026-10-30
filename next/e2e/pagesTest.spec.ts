@@ -1,21 +1,15 @@
 import { test, expect } from '@playwright/test';
 
 test('VER-1 has "Hello World!" on homepage', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
-
-  await expect(page.getByText('Hello world!')).toBeVisible()
+  throw new Error('VER-1 INTENTIONALLY FAILED');
 });
 
 test('VER-2 has "Hello World!" on homepage', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
-
-  await expect(page.getByText('Hello world!')).toBeVisible()
+  throw new Error('VER-1 INTENTIONALLY FAILED');
 });
 
 test('VER-4 has "Hello World!" on homepage', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
-
-  await expect(page.getByText('Hello world!')).toBeVisible()
+  throw new Error('VER-1 INTENTIONALLY FAILED');
 });
 
 test('clicking on Test! link opens test page', async ({ page }) => {
